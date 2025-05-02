@@ -19,8 +19,15 @@ def draw_cat_plot():
     df_cat =pd.melt(df,id_vars=['cardio'],value_vars=['cholesterol','gluc','smoke','alco','active','overweight'])
 
     # 6
-    df_cat = None
+    df_cat = df_cat.groupby(['cardio', 'variable', 'value']).size().reset_index(name='total')
+    sns.catplot(data=df_cat, 
+            kind='bar', 
+            x='variable', 
+            y='total', 
+            hue='value', 
+            col='cardio')
     
+    plt.show()
 
     # 7
 
