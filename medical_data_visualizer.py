@@ -20,21 +20,17 @@ def draw_cat_plot():
 
     # 6
     df_cat = df_cat.groupby(['cardio', 'variable', 'value']).size().reset_index(name='total')
-    sns.catplot(data=df_cat, 
+    
+    # 7
+    print(df_cat)
+
+    # 8
+    fig =sns.catplot(data=df_cat, 
             kind='bar', 
             x='variable', 
             y='total', 
             hue='value', 
             col='cardio')
-    
-    plt.show()
-
-    # 7
-
-
-
-    # 8
-    fig = None
 
 
     # 9
