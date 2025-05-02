@@ -4,19 +4,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # 1
-df = None
+df = pd.read_csv('medical_examination.csv')
 
 # 2
-df['overweight'] = None
-
+df['overweight']=np.where(df['weight']*10000/(df['height']*df['height'])>25,1,0)
+    
 # 3
-
+df['cholesterol']=np.where(df['cholesterol']>1,1,0)
+df['gluc']=np.where(df['gluc']>1,1,0)
 
 # 4
 def draw_cat_plot():
     # 5
-    df_cat = None
-
+    df_cat =pd.melt(df,id_vars=['id'],value_vars=['cholesterol','gluc','smoke','alco','active','overweight'])
 
     # 6
     df_cat = None
